@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+
+<link rel="stylesheet" href="/css/bootstrap.css"/>
+ 
+ 
+<!-- 
+<script type="text/javascript" src="/js/jquery-3.0.0.js"></script>
+
+<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+ 
+<link href="#" th:href="@{/css/style.css}" rel="stylesheet" />
+-->
+<title>Insert title here</title>
+</head>
+<body>
+
+	<div class="jumbotron">
+		<div class="container">
+			
+			<form action="#" th:action="@{/empleados/actualizarempleado}" th:object="${empleado}" method="post">
+				
+				<!--   			
+				<input type="hidden" th:field="*{id}"></input>
+				 -->
+							
+				<p>Nombre: <input type="text" class="form-control" th:field="*{nombre}" ></input></p> <br />
+				<p>Apellido: <input type="text" class="form-control" th:field="*{apellido}" ></input></p> <br />
+				<p>Fecha: <input type="text" class="form-control" th:field="*{fechanac}" ></input></p> <br />
+				<p>DNI: <input type="text" class="form-control" th:field="*{dni}" ></input></p> <br /> <br />
+				<p>Puesto: <input type="text" class="form-control" th:field="*{puesto}"></input></p> <br /> <br />
+				
+				<button type="submit"  class="btn btn-lg btn-primary btn-block"  style="cursor:pointer;">
+					<img src="/icons/ic_done_blanco_24px.svg" ></img>
+					Accept
+				</button>
+				
+				<!-- 
+				
+				th:value="${#dates.format(prod.createdOn,'yyyy/MM/dd HH:mm')}"
+				 -->
+				
+
+			</form>
+			<br></br>
+			<a href="#" th:href="@{/empleados/redirectlist}">
+			<button class="btn btn-lg btn-primary btn-block" type="submit" style="cursor:pointer;">
+				<img src="/icons/ic_cancel_blanco_24px.svg" ></img>
+				Cancel
+			</button>
+			</a>
+		</div>
+	</div>
+
+
+</body>
+</html>

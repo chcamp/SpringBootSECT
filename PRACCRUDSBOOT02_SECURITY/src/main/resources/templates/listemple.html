@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="UTF-8" />
+<title>Listar empleados</title>
+
+
+<link rel="stylesheet" href="/css/bootstrap.css" />
+
+
+<!-- 
+<link href="#" th:href="@{/css/bootstrap.css}" rel="stylesheet" />
+ -->
+</head>
+
+<body>
+
+	<div class="container">
+
+
+		<div class="panel panel-default">
+			<div class="panel-heading"></div>
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>Nombre</th>
+						<th>Apellido</th>
+						<th>Fecha Nac</th>
+						<th>DNI</th>
+						<th>Puesto</th>
+						<th></th>
+						<th></th>
+					</tr>
+				</thead>
+
+
+				<tbody>
+					<tr th:each="empleado : ${empleados}">
+						<td><span th:text="${empleado.nombre}">Nombre</span></td>
+						<td><span th:text="${empleado.apellido}">Apellido</span></td>
+						<td><span th:text="${empleado.fechanac}">Fechnac</span></td>
+						<td><span th:text="${empleado.dni}">DNI</span></td>
+						<td><span th:text="${empleado.puesto}">Puesto</span></td>
+
+						<!-- 
+				
+				th:value="${#dates.format(prod.createdOn,'yyyy/MM/dd HH:mm')}"
+				 -->
+
+
+						<!--  
+				<a href="#" th:href="@{/empleados/editempleado?id=__${empleado.id}__}">
+					
+					<button type="button" class="btn btn-primary" style="cursor:pointer;"><img  src="/icons/ic_mode_edit_blanco_24px.svg" ></img></button>
+					
+				</a>
+				
+				<a href="#" th:href="@{/empleados/removeemple?id=__${empleado.id}__}">
+				
+				<button type="button" class="btn btn-danger" style="cursor:pointer;"><img src="/icons/ic_delete_blanco_24px.svg"></img></button>
+				</a>
+				-->
+
+						<td>
+						<a
+							th:href="@{/empleados/editarempleado/{id}(id=${empleado.id})}">
+								<button type="button" class="btn btn-primary"
+									style="cursor: pointer;">
+									<img src="/icons/ic_mode_edit_blanco_24px.svg"></img>
+								</button>
+						</a>
+						 <a th:href="@{/empleados/deleteempleado/{id}(id=${empleado.id})}">
+								<button type="button" class="btn btn-danger"
+									style="cursor: pointer;">
+									<img src="/icons/ic_delete_blanco_24px.svg"></img>
+								</button>
+						</a>
+						</td>
+					</tr>
+				</tbody>
+
+			</table>
+		</div>
+		<!-- class="panel panel default" -->
+
+
+		<a href="#" th:href="@{/empleados/empleadoform}">
+
+			<button class="btn btn-lg btn-primary btn-block" type="submit"
+				style="cursor: pointer;">
+				<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+				Add contact
+			</button>
+		</a> <br></br>
+
+		<!--  
+		<form th:action="@{/logout}" method="POST">
+		
+		<button class="btn btn-lg btn-primary btn-block" type="submit" style="cursor:pointer;"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Logout</button>
+		
+		</form>
+		-->
+
+		<a href="#" th:href="@{/login?logout}">
+
+			<button class="btn btn-lg btn-primary btn-block" type="submit"
+				style="cursor: pointer;">
+				<span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
+				Logout
+			</button>
+		</a>
+	</div>
+	<!-- fin container -->
+</body>
+</html>
